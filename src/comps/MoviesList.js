@@ -31,6 +31,7 @@ function MoviesList(){
             {moviesList.map((movie) => (
                     <li key={movie.id}>
                         <p><strong>Movie ID:</strong> {movie.id}</p>
+                        <img src={movie.image} alt={movie.title} style={{ width: "150px", height:"200px", borderRadius: "10px" }}></img>
                         <p><strong>Title:</strong> {movie.title}</p>
                         <p><strong>Year:</strong> {movie.year}</p>
                         <hr />
