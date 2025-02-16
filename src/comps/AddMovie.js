@@ -5,7 +5,6 @@ import axios from "axios";
 function AddMovie(){
     const [newMovie, setNewMovie] = useState({id:"" ,title:"", year:null, image:""});
     const [error, setError] = useState(null);
-    const [message, setMessage] = useState("");
 
 
     function handleChange(event){
@@ -15,13 +14,13 @@ function AddMovie(){
 
     async function addNewMovie(){
         if (!newMovie.title || !newMovie.year || !newMovie.image) {
-            setMessage("You must enter data! ❌");
+            alert("You must enter data! ❌");
             return;
         }
 
         try{
             const response = await axios.post("http://localhost:5000/movies", newMovie);
-            setMessage("Movie added successfully ✅");
+            alert("Movie added successfully ✅");
             setNewMovie({ id:"",title: "", year: "", image:"" }); 
         }
         catch(error){
@@ -41,7 +40,6 @@ function AddMovie(){
         <input style={{margin:"3px"}} value={newMovie.image} name="image"  onChange={handleChange} placeholder="Enter movie image url"></input>
         <br></br>
         <button style={{backgroundColor: "rgb(164, 135, 162)", color: "white", padding: "6px 6px", border: "none", borderRadius: "5px", marginTop:"10px", fontFamily:"Garamond"}}onClick={addNewMovie}>Click Here to Add Movie</button>
-        <p>{message}</p>
     </div>)
 }
 
