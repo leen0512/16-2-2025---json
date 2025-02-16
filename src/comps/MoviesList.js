@@ -26,14 +26,14 @@ function MoviesList(){
 
     return (
         <div>
-            <h2>Movies List</h2>
-            <ul>
+            <h3 style={{color:"rgb(149, 93, 145)",fontFamily:"serif"}}>Movies List</h3>
+            <ul style={{display:"flex", flexWrap:"wrap", gap:"10px"}}>
             {moviesList.map((movie) => (
-                    <li key={movie.id}>
-                        <p><strong>Movie ID:</strong> {movie.id}</p>
+                    <li style={{listStyleType: "none"}} key={movie.id}>
+                        <p style={{color:"rgb(149, 93, 145)"}}><strong>Movie ID:</strong> {movie.id}</p>
                         <img src={movie.image} alt={movie.title} style={{ width: "150px", height:"200px", borderRadius: "10px" }}></img>
-                        <p><strong>Title:</strong> {movie.title}</p>
-                        <p><strong>Year:</strong> {movie.year}</p>
+                        <p style={{color:"rgb(149, 93, 145)"}}><strong>Title:</strong> {movie.title}</p>
+                        <p style={{color:"rgb(149, 93, 145)"}}><strong>Year:</strong> {movie.year}</p>
                         <hr />
                     </li>
                 ))}
