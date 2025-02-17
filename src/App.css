@@ -38,7 +38,132 @@
 }
 
 body{
-  background-color: rgb(248, 239, 247);
-  margin: 0;
+  background-image: url(/images/dinsey.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding-top: 20px; 
+}
+
+
+
+/* list */
+
+/* Container for the entire movies section */
+.movies-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Title styling */
+.movies-title {
+  color: rgb(149, 93, 145);
+  font-family: Garamond, serif;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Movie list grid */
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
   padding: 0;
+  list-style-type: none;
+}
+
+/* Individual movie card */
+.movie-card {
+  background: rgb(250, 242, 248);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+/* Movie ID text */
+.movie-id {
+  color: rgb(149, 93, 145);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Movie image */
+.movie-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Movie title */
+.movie-title {
+  color: rgb(102, 51, 102);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Movie year */
+.movie-year {
+  color: rgb(102, 51, 102);
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* add */
+/* Container for the form */
+.movie-form-container {
+  text-align: center;
+  background: rgb(250, 242, 248);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+/* Title styling */
+.movie-form-title {
+  color: rgb(149, 93, 145);
+  font-family: Garamond, serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Input styling */
+.movie-form-input {
+  width: 90%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid rgb(164, 135, 162);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: serif;
+}
+
+/* Button styling */
+.movie-form-button {
+  cursor: pointer;
+  background-color: rgb(164, 135, 162);
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: Garamond;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.movie-form-button:hover {
+  background-color: rgb(140, 110, 138);
+  transform: scale(1.05);
 }

@@ -7,8 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+      <h1 style={{color:"rgb(234, 202, 234)", fontFamily:"serif"}}>Welcome To Disney Movies</h1>
 
-      <h1 style={{color:"rgb(130, 94, 128)", fontFamily:"serif"}}>Welcome To Movies</h1>
       <BrowserRouter>
         <Routes>
           <Route path='list' element={<MoviesList/>}/>
