@@ -1,35 +1,48 @@
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 
 function MoviesList(){
     const [moviesList, setMoviesList] = useState([]);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchMovies = async () =>{ 
-        try{
-            const response = await axios.get("http://localhost:5000/movies");
-            setMoviesList(response.data);
-        }
-        catch(error){
-            setError(error.message); 
-
-        }
+    const GetMovies =  async() => {
+        const response = await axios.get("http://localhost:5000/movies");
+        return response.data;
     };
-
-    fetchMovies();
     
-    }, []);
+    const {data, error, isLoading} = useQuery({
+        queryKey: ['movies'],
+        queryFn: GetMovies,
+        staleTime: 5000,
+    });
 
-    if(error) return <p>{error}</p>
+    if(isLoading) return <p>Loading Data... </p>
+    if(error) return <p>{error.message}</p>
+
+    // const [error, setError] = useState(null);
+    // useEffect(() => {
+    //     const fetchMovies = async () =>{ 
+    //     try{
+    //         const response = await axios.get("http://localhost:5000/movies");
+    //         setMoviesList(response.data);
+    //     }
+    //     catch(error){
+    //         setError(error.message); 
+
+    //     }
+    // };
+
+    // fetchMovies();
+    
+    // }, []);
+    // if(error) return <p>{error}</p>
 
     return (
         <div className="movies-container">
     <h3 className="movies-title" style={{color:"rgb(234, 202, 234)"}}>Movies List</h3>
 
     <ul className="movies-list">
-        {moviesList.map((movie) => (
+        {data.map((movie) => (
             <li key={movie.id} className="movie-card">
                 <p className="movie-id">Movie ID: {movie.id}</p>
 
